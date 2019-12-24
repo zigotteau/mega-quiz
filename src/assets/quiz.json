@@ -1,0 +1,66 @@
+[
+	{
+		"titre": "Bateaux",
+		"assets_folder": "questions/bateaux",
+		"questions": [
+			{
+				"question": "Qu’est-ce que le coté babord d’un bateau ?",
+				"propositions": [
+					"Le côté droit du bateau en regardant vers l’avant.",
+					"Le côté gauche du bateau en regardant vers l’avant."
+				],
+				"solution": 1,
+				"illustration": "bateau.png",
+				"video": null,
+				"audio": "herring_gull.mp3"
+			},
+			{
+				"question": "Combien de bateaux sont visibles dans cette vidéo ?",
+				"propositions": null,
+				"solution": "aucun",
+				"illustration": null,
+				"video": "vagues.mp4",
+				"audio": null
+			},
+			{
+				"question": "Qu'est-ce que la proue ?",
+				"propositions": [
+					"La partie avant du bateau.",
+					"La partie arrière du bateau.",
+					"La profondeur d’eau nécessaire à la flottaison normale du bateau."
+				],
+				"solution": 0,
+				"illustration": "bateau.png",
+				"video": null,
+				"audio": null
+			},
+			{
+				"question": "Quelle couleur associe-t-on généralement à l’eau ?",
+				"propositions": null,
+				"solution": "le bleu",
+				"illustration": "bleu.png",
+				"video": null,
+				"audio": null
+			}
+		]
+	},
+	{
+		"titre": "Unités de mesure",
+		"assets_folder": "questions/mesures",
+		"questions": [
+			{
+				"question": "Classer ces unités par ordre croissant.",
+				"propositions": [
+					"ml",
+					"dl",
+					"l",
+					"cl"
+				],
+				"solution": "A. ml, D. cl, B. dl, C. l",
+				"illustration": null,
+				"video": null,
+				"audio": null
+			}
+		]
+	}
+]

@@ -1,0 +1,9 @@
+<h5>Solutions au Quiz</h5>
+
+<button class="btn btn-lg btn-warning" (click)=SwitchHide()>Afficher les solutions</button>
+
+<div class="mt-4" *ngIf="!hide && questions">
+    <div *ngFor="let question of questions; index as i">
+    <h6>{{(i+1)}}) {{getSolution(i)}}</h6>
+    </div>
+</div>

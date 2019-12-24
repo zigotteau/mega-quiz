@@ -1,0 +1,5 @@
+<div class="mt-5">
+    <ng-container *ngFor="let quiz of quizList; index as i">
+        <button (click)="onSelectQuiz(i)" role="button" class="btn btn-warning  btn-lg btn-block">{{quiz.titre}}</button>
+    </ng-container>
+</div>
