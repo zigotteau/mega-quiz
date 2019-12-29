@@ -14,6 +14,10 @@ export class QuestionComponent implements OnInit {
 
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+ get isOptNoLetter() {
+    return (this.question && this.question.options && this.question.options.includes("noletter"));
+  }
+
   constructor() {
 
   }

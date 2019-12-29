@@ -2,8 +2,17 @@
 
 <button class="btn btn-lg btn-warning" (click)=SwitchHide()>Afficher les solutions</button>
 
-<div class="mt-4" *ngIf="!hide && questions">
-    <div *ngFor="let question of questions; index as i">
-    <h6>{{(i+1)}}) {{getSolution(i)}}</h6>
+<div class="mt-4" *ngIf="!hide && quiz">
+    <div *ngFor="let question of quiz.questions; index as i">
+        <ng-container *ngIf="isPicSol(i)">
+            <h6>{{(i+1)}}) <button type="button" class="btn btn-sm btn-primary"
+                    (click)="isCollapsed[i] = !isCollapsed[i]" [attr.aria-expanded]="!isCollapsed[i]"
+                    aria-controls="collapseBasic">afficher
+                </button></h6>
+            <div id="collapseBasic" [collapse]="isCollapsed[i]" [isAnimated]="true">
+                <img [height]="480" [src]="'/assets/' + quiz.assets_folder + '/' + question.solution" alt="image">
+            </div>
+        </ng-container>
+        <h6 *ngIf="!isPicSol(i)">{{(i+1)}}) {{getSolution(i)}}</h6>
     </div>
 </div>

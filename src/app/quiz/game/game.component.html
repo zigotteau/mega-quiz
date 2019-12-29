@@ -16,5 +16,5 @@
  </div>
  
  <app-question *ngIf="curQuestion >= 0 && curQuestion < nbQuestion" [assets_folder]="quiz.assets_folder" [questionNumber]="(curQuestion + 1)" [question]="quiz.questions[curQuestion]"></app-question>
- <app-solutions *ngIf="curQuestion > 0 && curQuestion == nbQuestion" [questions]="quiz.questions"></app-solutions>
+ <app-solutions *ngIf="curQuestion > 0 && curQuestion == nbQuestion" [quiz]="quiz"></app-solutions>
  

@@ -24,9 +24,9 @@
 
     <!-- reponses proposées -->
     <div *ngIf="question.propositions && question.propositions.length > 0" class="mt-4">
-        <h6>Propositions :</h6>
+        <h6 *ngIf="!isOptNoLetter">Propositions :</h6>
         <h5 class="propostion" *ngFor="let proposition of question.propositions; index as i">
-            {{alphabet[i]}}. {{proposition}}
+            {{(isOptNoLetter ? "" : alphabet[i] + ". ")}}{{proposition}}
         </h5>
     </div>
 

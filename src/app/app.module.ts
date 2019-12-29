@@ -1,4 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,6 +13,7 @@ import { QuizIndexComponent } from './quiz/quiz-index/quiz-index.component';
 import { SolutionsComponent } from './quiz/solutions/solutions.component';
 import { GameComponent } from './quiz/game/game.component';
 import { AnimationComponent } from './animation/animation.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { AnimationComponent } from './animation/animation.component';
     AnimationComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CollapseModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

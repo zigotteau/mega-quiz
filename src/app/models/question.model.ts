@@ -5,4 +5,5 @@ export class Question {
     illustration: string;
     video: string;
     audio: string;
+    options: ('noletter'|'picsol')[];
 }
