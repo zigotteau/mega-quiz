@@ -8,7 +8,7 @@ h5 {
   h5.question {
     color: deepskyblue;
     margin-top: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 
   h5.reponse {
@@ -19,4 +19,10 @@ h5 {
   h6 {
     color: white;
     font-size: 20pt;
+  }
+
+  h6.bonus {
+    color: orange;
+    font-size: 20pt;
+    margin-top: 0px;
   }

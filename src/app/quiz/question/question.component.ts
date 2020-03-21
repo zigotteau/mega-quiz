@@ -18,6 +18,16 @@ export class QuestionComponent implements OnInit {
     return (this.question && this.question.options && this.question.options.includes("noletter"));
   }
 
+  get isOpt2col() {
+    console.log("2 col : ", this.question && this.question.options && this.question.options.includes("2col"));
+    
+    return (this.question && this.question.options && this.question.options.includes("2col"));
+  }
+
+  get isOptPicRight() {
+    return (this.question && this.question.options && this.question.options.includes("picright"));
+  }
+
   constructor() {
 
   }

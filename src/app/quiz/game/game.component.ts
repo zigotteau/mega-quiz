@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter, HostListener } from '@angular/core';
 import { Quiz } from 'src/app/models/quiz.model';
 
 @Component({
@@ -14,6 +14,14 @@ export class GameComponent implements OnInit, OnChanges {
   @Input() quiz: Quiz = null;
   @Output() ExitGameEvent = new EventEmitter<void>();
 
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    console.log(event);
+    if (event.code === "Period") {
+      this.nextQuestion();
+    }
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +32,8 @@ export class GameComponent implements OnInit, OnChanges {
       this.nbQuestion = this.quiz.questions.length;
     }
   }
+
+
 
   previousQuestion() {
     this.curQuestion = this.curQuestion - 1;

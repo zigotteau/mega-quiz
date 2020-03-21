@@ -3,12 +3,7 @@
 </div>
 <div *ngIf="question">
     <h5 class="question">{{questionNumber}}. {{question.question}}</h5>
-    <!-- extrait audio -->
-    <div *ngIf="question.illustration" class="mt-4">
-        <!-- <h6>Illustration :</h6> -->
-        <img [height]="(question.propositions && question.propositions.length > 0 ? '480': '720')"
-            [src]="'/assets/' + assets_folder + '/' + question.illustration" alt="image">
-    </div>
+    <h6 *ngIf="question.bonus" class="bonus">Bonus : {{question.bonus}}</h6>
 
     <!-- extrait vidéo -->
     <div *ngIf="question.video" class="mt-4">
@@ -22,12 +17,55 @@
         </div>
     </div>
 
-    <!-- reponses proposées -->
-    <div *ngIf="question.propositions && question.propositions.length > 0" class="mt-4">
-        <h6 *ngIf="!isOptNoLetter">Propositions :</h6>
-        <h5 class="propostion" *ngFor="let proposition of question.propositions; index as i">
-            {{(isOptNoLetter ? "" : alphabet[i] + ". ")}}{{proposition}}
-        </h5>
+
+    <div *ngIf="!isOptPicRight">
+        <!-- illustration -->
+        <div *ngIf="question.illustration" class="mt-4">
+            <img [height]="(question.propositions && question.propositions.length > 0 ? '480': '720')"
+                [src]="'/assets/' + assets_folder + '/' + question.illustration" alt="image">
+        </div>
+        <!-- reponses proposées -->
+        <div *ngIf="question.propositions && question.propositions.length > 0" class="mt-4">
+            <h6 *ngIf="!isOptNoLetter">Propositions :</h6>
+            <!-- 1 colonne de propositions -->
+            <ng-container *ngIf="!isOpt2col">
+                <h5 class="propostion" *ngFor="let proposition of question.propositions; index as i">
+                    {{(isOptNoLetter ? "" : alphabet[i] + ". ")}}{{proposition}}
+                </h5>
+            </ng-container>
+            <!-- 2 colonnes des propositions -->
+            <ng-container *ngIf="isOpt2col">
+                <ng-container *ngFor="let proposition of question.propositions; index as i">
+                    <div class="row" *ngIf="i <= ((question.propositions.length / 2) + (question.propositions.length % 2))">
+                        <div class="col-6">
+                            <h5 class="propostion" *ngIf="(i*2) < question.propositions.length">
+                                {{(isOptNoLetter ? "" : alphabet[i*2] + ". ")}}{{question.propositions[i*2]}}
+                            </h5>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="propostion" *ngIf="(i*2+1) < question.propositions.length">
+                                {{(isOptNoLetter ? "" : alphabet[i*2+1] + ". ")}}{{question.propositions[i*2+1]}}
+                            </h5>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- reponses proposées + illustration à droite -->
+    <div *ngIf="isOptPicRight" class="row">
+        <!-- reponses proposées -->
+        <div *ngIf="question.propositions && question.propositions.length > 0" class="col-8">
+            <h6 *ngIf="!isOptNoLetter">Propositions :</h6>
+            <h5 class="propostion" *ngFor="let proposition of question.propositions; index as i">
+                {{(isOptNoLetter ? "" : alphabet[i] + ". ")}}{{proposition}}
+            </h5>
+        </div>
+        <!-- illustration -->
+        <div *ngIf="question.illustration" class="col-4">
+            <img [src]="'/assets/' + assets_folder + '/' + question.illustration" class="img-fluid" alt="image">
+        </div>
     </div>
 
     <!-- extrait audio -->

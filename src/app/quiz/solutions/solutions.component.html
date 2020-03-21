@@ -15,4 +15,9 @@
         </ng-container>
         <h6 *ngIf="!isPicSol(i)">{{(i+1)}}) {{getSolution(i)}}</h6>
     </div>
+
+    <!-- extrait audio -->
+    <div *ngIf="quiz.audio_solution" class="mt-4">
+        <audio controls autoplay [src]="'/assets/' + quiz.assets_folder + '/' + quiz.audio_solution"></audio>
+    </div>
 </div>
